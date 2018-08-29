@@ -38,7 +38,10 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  greenapp:   #095A51,
+  green-transparent: rgba(0, 150, 136, 0.78),
+  white:      #ffffff
 );
 
 
@@ -86,3 +89,7 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+/*Personalizar colores
+ --------------------------------------------------
+*/

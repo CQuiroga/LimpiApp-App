@@ -1,17 +1,57 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="greenapp">
+    <ion-buttons>
+      <button ion-button><ion-icon name="alarm"></ion-icon> <ion-title>LimpiApp</ion-title> </button>
+
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content no-padding>
+  <ion-segment [(ngModel)]= "seleccionado" color="greenapp" padding-top>
+    <ion-segment-button value="Home">Home</ion-segment-button>
+    <ion-segment-button value="Eventos">Eventos</ion-segment-button>
+    <ion-segment-button value="Contacto">Contacto</ion-segment-button>
+  </ion-segment>
+
+
+  <div *ngIf="seleccionado == 'Home'">
+  <div class="contenedor-home" no-padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <button ion-button color="green-transparent" [navPush]="CulturaPage">Cultura</button>
+
+        </ion-col>
+        <ion-col>
+          <button ion-button color="green-transparent" [navPush]="RutasPage">Mi Ruta</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="green-transparent" [navPush]="ReportesPage">Reportar</button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <button ion-button color="green-transparent" [navPush]="BeneficiosPage">Beneficios</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="green-transparent" [navPush]="EcoaliadosPage">Ecoalidos</button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      </ion-grid>
+      </div>
+
+  </div>
+  <div *ngIf="seleccionado == 'Eventos'" [navPush]="EcoaliadosPage">
+    <h2>Contenido Eventos</h2>
+  </div>
+  <div *ngIf="seleccionado == 'Contacto'">
+    <h2>Contenido Contacto</h2>
+  </div>
+
 </ion-content>
