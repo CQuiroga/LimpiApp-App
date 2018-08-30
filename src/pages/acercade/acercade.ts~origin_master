@@ -1,0 +1,43 @@
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { AcercadePage } from '../acercade/acercade';
+import { BeneficiosPage } from '../beneficios/beneficios';
+import { ContactPage } from '../contact/contact';
+import { CulturaPage } from '../cultura/cultura';
+import { EcoaliadosPage } from '../ecoaliados/ecoaliados';
+import { ReportesPage } from '../reportes/reportes';
+import { RutasPage } from '../rutas/rutas';
+import { SiguenosPage } from '../siguenos/siguenos';
+@Component({
+<<<<<<< HEAD:src/pages/home/home.ts:src/pages/home/home.ts
+  selector: 'page-home',
+  templateUrl: 'home.html',
+
+})
+export class HomePage {
+  seleccionado: string = "Home";
+  CulturaPage = CulturaPage;
+  AcercadePage = AcercadePage;
+  BeneficiosPage = BeneficiosPage;
+  ContactPage = ContactPage;
+  EcoaliadosPage = EcoaliadosPage;
+  ReportesPage = ReportesPage;
+  RutasPage = RutasPage;
+  SiguenosPage = SiguenosPage;
+  constructor(public navCtrl: NavController) {
+
+  }
+=======
+  selector: 'page-acercade',
+  templateUrl: 'acercade.html'
+})
+export class AcercadePage {
+
+  constructor(public navCtrl: NavController) {
+
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AcercadePage');
+  }
+>>>>>>> origin/master:src/pages/acercade/acercade.ts:src/pages/acercade/acercade.ts
+}

@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
-<<<<<<< HEAD
- * Generated class for the ReportesPage page.
-=======
- * Generated class for the AcercadePage page.
->>>>>>> origin/master
+ * Generated class for the SiguenosPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-reportes',
-  templateUrl: 'reportes.html',
+  selector: 'page-siguenos',
+  templateUrl: 'siguenos.html',
 })
-export class ReportesPage {
+export class SiguenosPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReportesPage');
+    console.log('ionViewDidLoad SiguenosPage');
   }
 
 }
