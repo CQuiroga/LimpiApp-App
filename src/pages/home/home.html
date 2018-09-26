@@ -18,28 +18,33 @@
 
   <div *ngIf="seleccionado == 'Home'">
   <div class="contenedor-home" no-padding>
-    <ion-grid>
+
+    <div class="logo-background">
+      <img src="../assets/imgs/logo.png" class="logo">
+    </div>
+
+    <ion-grid class="tabs">
       <ion-row>
-        <ion-col></ion-col>
+        <ion-col col-xs></ion-col>
         <ion-col>
-          <button ion-button color="green-transparent" [navPush]="CulturaPage">Cultura</button>
+          <button ion-button color="green-transparent" [navPush]="CulturaPage" class="main-buttons"><img src="../assets/imgs/cultura.png"></button>
 
         </ion-col>
         <ion-col>
-          <button ion-button color="green-transparent" [navPush]="RutasPage">Mi Ruta</button>
+          <button ion-button color="green-transparent" [navPush]="RutasPage" class="main-buttons"><img src="../assets/imgs/mi_ruta.png"></button>
         </ion-col>
         <ion-col>
-          <button ion-button color="green-transparent" [navPush]="ReportesPage">Reportar</button>
+          <button ion-button color="green-transparent" [navPush]="ReportesPage" class="main-buttons"><img src="../assets/imgs/reportar.png"></button>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>
       <ion-row>
-        <ion-col></ion-col>
+        <ion-col col-xs></ion-col>
         <ion-col>
-          <button ion-button color="green-transparent" [navPush]="BeneficiosPage">Beneficios</button>
+          <button ion-button color="green-transparent" [navPush]="BeneficiosPage" class="main-buttons"><img src="../assets/imgs/beneficios.png"></button>
         </ion-col>
         <ion-col>
-          <button ion-button color="green-transparent" [navPush]="EcoaliadosPage">Ecoalidos</button>
+          <button ion-button color="green-transparent" [navPush]="EcoaliadosPage" class="main-buttons"><img src="../assets/imgs/ecoaliados.png"></button>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>
@@ -47,7 +52,7 @@
       </div>
 
   </div>
-  <div *ngIf="seleccionado == 'Eventos'" [navPush]="EcoaliadosPage">
+  <div *ngIf="seleccionado == 'Eventos'">
     <h2>Contenido Eventos</h2>
   </div>
   <div *ngIf="seleccionado == 'Contacto'">

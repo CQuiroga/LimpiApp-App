@@ -9,7 +9,6 @@ import { ReportesPage } from '../reportes/reportes';
 import { RutasPage } from '../rutas/rutas';
 import { SiguenosPage } from '../siguenos/siguenos';
 @Component({
-<<<<<<< HEAD:src/pages/home/home.ts:src/pages/home/home.ts
   selector: 'page-home',
   templateUrl: 'home.html',
 
@@ -27,17 +26,4 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
-=======
-  selector: 'page-acercade',
-  templateUrl: 'acercade.html'
-})
-export class AcercadePage {
-
-  constructor(public navCtrl: NavController) {
-
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AcercadePage');
-  }
->>>>>>> origin/master:src/pages/acercade/acercade.ts:src/pages/acercade/acercade.ts
 }
