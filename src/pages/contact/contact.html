@@ -1,17 +1,41 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="green-transparent">
     <ion-title>
-      Contact
+      Registrate
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+
+<ion-content no-padding>
+  
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-label>Username</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Website</ion-label>
+    <ion-input type="url"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Phone</ion-label>
+    <ion-input type="tel"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Toggle</ion-label>
+    <ion-toggle></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Checkbox</ion-label>
+    <ion-checkbox></ion-checkbox>
+  </ion-item>
+  </ion-content>

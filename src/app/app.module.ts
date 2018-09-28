@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
-import { ContactPage } from '../pages/contact/contact';
+import { RegistratePage } from '../pages/registrate/registrate';
 import { CulturaPage } from '../pages/cultura/cultura';
 import { EcoaliadosPage } from '../pages/ecoaliados/ecoaliados';
 import { HomePage } from '../pages/home/home';
@@ -20,7 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    ContactPage,
+    RegistratePage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -38,7 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    ContactPage,
+    RegistratePage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,

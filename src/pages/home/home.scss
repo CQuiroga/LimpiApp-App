@@ -4,32 +4,96 @@ page-home {
     background-size: 159rem 100rem;
     background-repeat: no-repeat;
     background-position: center;
+    height: 48.6rem;
 
-    height: 100%;
+  }
+
+  .segmt {
+    background-color: #17887B;
   }
 
   .tabs {
-    padding: 16% 0;
+    height: 31rem;
   }
 
   .main-buttons {
-    height: 11rem;
-    width: 11rem;
-    padding: -4rem 1rem 0rem 1rem;
-    margin: 6rem 2rem 0 2rem;
+    height: 9rem;
+    width: 9rem;
+    margin: 4rem 1.3rem 0 0;
     border-radius: 12%;
-    box-shadow: 1px 1px #333;
   }
+
   .logo {
-    width: 30%;
-    margin: 0 35% 0 35%;
+    width: 12rem;
+    margin: 2% 0 0 32%;
   }
 
   .logo-background {
     background-image: url('../assets/imgs/logo_background.png');
+    background-position-y: -3rem;
     background-repeat: repeat-x;
     width: 100%;
     height: 16rem;
     margin: 0 0 0 0;
+    background-position-y: -3rem;
+  }
+
+  //Iphone 6,7,8
+  @media(max-width:375px) and (min-height:666px){
+    .contenedor-home {
+      height: 51.3rem;
+    }
+  }
+
+  //Google Pixel
+  @media(max-width:440px) and (min-height:730px){
+    .contenedor-home {
+      height: 57.7rem;
+    }
+    .tabs {
+      padding: 12rem 0 0 0;
+    }
+  }
+
+  //Iphone X
+  @media(min-height:811px){
+    .contenedor-home {
+      height: 68.8rem;
+    }
+    .tabs {
+      padding: 9rem 0 0 0;
+    }
+  }
+
+
+
+  //S9
+  @media(max-width:360px) and (min-height:740px){
+    .contenedor-home {
+      height: 58.6rem;
+    }
+    .tabs {
+      padding: 6rem 0 0 0;
+    }
+  }
+
+  //Ipad
+  @media(max-width:767px) and (min-height:1023px){
+    .contenedor-home {
+    height: 89.8rem;
+    }
+    .main-buttons {
+    height: 14rem;
+    width: 14rem;
+    margin: 4rem 3rem 0 0;
+    }
+    .logo {
+    width: 14rem;
+    margin: 2% 0 0 39%;
+    }
+    .logo-background {
+    height: 19rem;
+    background-position-y: 0rem;
+    }
   }
 }

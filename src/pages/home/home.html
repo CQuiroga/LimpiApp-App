@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content no-padding>
-  <ion-segment [(ngModel)]= "seleccionado" color="greenapp" padding-top>
+  <ion-segment [(ngModel)]= "seleccionado" color="white" class="segmt">
     <ion-segment-button value="Home">Home</ion-segment-button>
     <ion-segment-button value="Eventos">Eventos</ion-segment-button>
     <ion-segment-button value="Contacto">Contacto</ion-segment-button>
@@ -57,6 +57,36 @@
   </div>
   <div *ngIf="seleccionado == 'Contacto'">
     <h2>Contenido Contacto</h2>
+
+    <ion-item>
+  <ion-label>Username</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label fixed>Website</ion-label>
+  <ion-input type="url"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Email</ion-label>
+  <ion-input type="email"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label stacked>Phone</ion-label>
+  <ion-input type="tel"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Toggle</ion-label>
+  <ion-toggle></ion-toggle>
+</ion-item>
+
+<ion-item>
+  <ion-label>Checkbox</ion-label>
+  <ion-checkbox></ion-checkbox>
+</ion-item>
   </div>
 
 </ion-content>
