@@ -8,6 +8,10 @@ page-home {
 
   }
 
+  .greenapp {
+    color: #095A51;
+  }
+
   .segmt {
     background-color: #17887B;
   }
@@ -30,6 +34,16 @@ page-home {
 
   .logo-background {
     background-image: url('../assets/imgs/logo_background.png');
+    background-position-y: -3rem;
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 16rem;
+    margin: 0 0 0 0;
+    background-position-y: -3rem;
+  }
+
+  .logo-background_green {
+    background-image: url('../assets/imgs/logo_background_green.png');
     background-position-y: -3rem;
     background-repeat: repeat-x;
     width: 100%;

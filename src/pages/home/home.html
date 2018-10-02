@@ -56,37 +56,49 @@
     <h2>Contenido Eventos</h2>
   </div>
   <div *ngIf="seleccionado == 'Contacto'">
-    <h2>Contenido Contacto</h2>
+    <div class="logo-background_green">
+      <img src="../assets/imgs/logo.png" class="logo">
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
 
-    <ion-item>
-  <ion-label>Username</ion-label>
-  <ion-input></ion-input>
-</ion-item>
+        </ion-col>
+        <ion-col col-10>
+        <h4 class="greenapp">Contacto</h4>
 
-<ion-item>
-  <ion-label fixed>Website</ion-label>
-  <ion-input type="url"></ion-input>
-</ion-item>
+        <form #formContacto = "ngForm" (ngSubmit)="enviarFormulario(formContacto)">
+          <ion-list>
+              <ion-item>
+                <ion-label fixed>Nombre:</ion-label>
+                <ion-input type="text" [(ngModel)]= "contacto.nombre" name="nombre" required></ion-input>
+              </ion-item>
 
-<ion-item>
-  <ion-label floating>Email</ion-label>
-  <ion-input type="email"></ion-input>
-</ion-item>
+              <ion-item>
+                <ion-label fixed>Email:</ion-label>
+                <ion-input type="email" [(ngModel)]= "contacto.email" name="email" required></ion-input>
+              </ion-item>
 
-<ion-item>
-  <ion-label stacked>Phone</ion-label>
-  <ion-input type="tel"></ion-input>
-</ion-item>
+              <ion-item>
+                <ion-label fixed>Teléfono:</ion-label>
+                <ion-input type="tel" [(ngModel)]="contacto.telefono" name="telefono" required></ion-input>
+              </ion-item>
 
-<ion-item>
-  <ion-label>Toggle</ion-label>
-  <ion-toggle></ion-toggle>
-</ion-item>
+              <ion-item>
+                <ion-label fixed>Mensaje:</ion-label>
+                <ion-input type="string" [(ngModel)]= "contacto.mensaje" name="mensaje" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <button ion-button block type="submit" color="greenapp" [disabled]="!formContacto.valid" (click)="showAlert()">Enviar</button>
+              </ion-item>
+          </ion-list>
+        </form>
+        </ion-col>
+        <ion-col>
 
-<ion-item>
-  <ion-label>Checkbox</ion-label>
-  <ion-checkbox></ion-checkbox>
-</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
 </ion-content>

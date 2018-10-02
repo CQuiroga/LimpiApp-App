@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AcercadePage } from '../acercade/acercade';
 import { BeneficiosPage } from '../beneficios/beneficios';
-import { RegistratePage } from '../registrate/registrate';
+import { ContactPage } from '../contact/contact';
 import { CulturaPage } from '../cultura/cultura';
 import { EcoaliadosPage } from '../ecoaliados/ecoaliados';
 import { ReportesPage } from '../reportes/reportes';
@@ -14,16 +14,38 @@ import { SiguenosPage } from '../siguenos/siguenos';
 
 })
 export class HomePage {
+  contacto= {
+    nombre: "",
+    email: "",
+    telefono: "",
+    mensaje: ""
+  }
+
   seleccionado: string = "Home";
   CulturaPage = CulturaPage;
   AcercadePage = AcercadePage;
   BeneficiosPage = BeneficiosPage;
-  RegistratePage = RegistratePage;
+  ContactPage = ContactPage;
   EcoaliadosPage = EcoaliadosPage;
   ReportesPage = ReportesPage;
   RutasPage = RutasPage;
   SiguenosPage = SiguenosPage;
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertController: AlertController) {
 
   }
+
+  enviarFormulario(formContacto) {
+    console.log(this.contacto);
+    console.log(formContacto.value);
+  }
+
+  showAlert() {
+    let alerta= this.alertController.create({
+      title: "Confirmación",
+      message : "Formulario enviado satisfactoriamente",
+      buttons : ['Aceptar']
+    })
+    alerta.present();
+  }
+
 }
