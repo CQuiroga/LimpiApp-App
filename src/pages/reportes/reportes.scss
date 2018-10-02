@@ -1,3 +1,25 @@
 page-reportes {
+  .greenapp {
+    color: #095A51;
+
+  }
+
+  .contenedor-reportes {
+    background-image: url('../assets/imgs/reportar_background.jpg');
+    background-size: 80em 70em;
+    background-repeat: no-repeat;
+    background-position: -2em;
+    height: 100%;
+  }
+
+  .transparent {
+    opacity: 0.95;
+    color: #095A51
+  }
+
+  .white {
+    color: white;
+    text-align: justify;
+  }
 
 }

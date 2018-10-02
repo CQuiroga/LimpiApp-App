@@ -35,7 +35,6 @@ export class HomePage {
   }
 
   enviarFormulario(formContacto) {
-    console.log(this.contacto);
     console.log(formContacto.value);
   }
 

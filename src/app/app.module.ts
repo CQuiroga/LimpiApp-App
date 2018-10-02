@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
-import { RegistratePage } from '../pages/registrate/registrate';
+import { ContactPage } from '../pages/contact/contact';
 import { CulturaPage } from '../pages/cultura/cultura';
 import { EcoaliadosPage } from '../pages/ecoaliados/ecoaliados';
 import { HomePage } from '../pages/home/home';
@@ -14,13 +14,14 @@ import { SiguenosPage } from '../pages/siguenos/siguenos';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    RegistratePage,
+    ContactPage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -38,7 +39,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    RegistratePage,
+    ContactPage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -50,6 +51,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

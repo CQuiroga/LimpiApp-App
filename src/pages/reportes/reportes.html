@@ -1,18 +1,67 @@
-<!--
-  Generated template for the ReportesPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="green-transparent">
-    <ion-title>Mis reportes</ion-title>
+    <ion-buttons>
+      <button ion-button><ion-title>Reportar</ion-title></button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
+  <div class="contenedor-reportes" no-padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
 
+      </ion-col>
+      <ion-col col-10>
+        <p></p>
+        <p></p>
+        <h6 class="white">En esta sección podrás generar reportes sobre zonas y/o cuadras que presenten un evidente descuido y presentación antihigienica.</h6>
+        <p></p>
+        <p></p>
+        <hr>
+
+      <form #formReporte = "ngForm" (ngSubmit)="enviarReporte(formReporte)" class="transparent">
+        <ion-list>
+            <ion-item >
+              <ion-label fixed>Fecha:</ion-label>
+              <ion-datetime displayFormat="DD/MMMM/YYYY" pickerFormat= "DD MMMM YYYY" [(ngModel)]= "reporte.fecha" name="fecha" required class="greenapp"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed>Dirección:</ion-label>
+              <ion-input type="text" [(ngModel)]= "reporte.ubicacion" name="ubicacion" required class="greenapp"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed>Comentarios:</ion-label>
+              <ion-input type="string" [(ngModel)]="reporte.observaciones" name="observaciones" required class="greenapp"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label fixed>Imagen:</ion-label>
+               <img src="{{base64Image}}" />
+            </ion-item>
+
+
+            <ion-item>
+              <button ion-button block type="submit" color="greenapp" [disabled]="!formReporte.valid" (click)="showAlert()">Enviar</button>
+            </ion-item>
+        </ion-list>
+      </form>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab bottom right>
+    <button ion-fab color="green-transparent" type="submit" (click)="tomarFoto()"><ion-icon name="md-camera"></ion-icon></button>
+    <br />
+      <button ion-fab color="green-transparent" (click)="seleccionarFoto()"><ion-icon name="md-image"></ion-icon></button>
+  </ion-fab>
+</div>
 </ion-content>
