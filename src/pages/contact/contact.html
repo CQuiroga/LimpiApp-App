@@ -1,41 +1,15 @@
 <ion-header>
   <ion-navbar color="green-transparent">
-    <ion-title>
-      Registrate
-    </ion-title>
+    <ion-title>Ingresar</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="nuevoRegistro()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content no-padding>
-  
-    <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Website</ion-label>
-    <ion-input type="url"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label stacked>Phone</ion-label>
-    <ion-input type="tel"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Toggle</ion-label>
-    <ion-toggle></ion-toggle>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Checkbox</ion-label>
-    <ion-checkbox></ion-checkbox>
-  </ion-item>
-  </ion-content>
+</ion-content>

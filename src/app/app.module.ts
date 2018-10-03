@@ -14,7 +14,23 @@ import { SiguenosPage } from '../pages/siguenos/siguenos';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
+
+
+import firebase from 'firebase';
+
+
+var config = {
+    apiKey: "AIzaSyA4fvMLrTx5Pa5p_fOPAflCWLgVHHfgno4",
+    authDomain: "limpiapp-app.firebaseapp.com",
+    databaseURL: "https://limpiapp-app.firebaseio.com",
+    projectId: "limpiapp-app",
+    storageBucket: "limpiapp-app.appspot.com",
+    messagingSenderId: "577087848758"
+};
+firebase.initializeApp(config);
+firebase.firestore().settings({timestampsInSnapshots:true});
+
 
 @NgModule({
   declarations: [

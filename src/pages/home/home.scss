@@ -27,30 +27,7 @@ page-home {
     border-radius: 12%;
   }
 
-  .logo {
-    width: 12rem;
-    margin: 2% 0 0 32%;
-  }
 
-  .logo-background {
-    background-image: url('../assets/imgs/logo_background.png');
-    background-position-y: -3rem;
-    background-repeat: repeat-x;
-    width: 100%;
-    height: 16rem;
-    margin: 0 0 0 0;
-    background-position-y: -3rem;
-  }
-
-  .logo-background_green {
-    background-image: url('../assets/imgs/logo_background_green.png');
-    background-position-y: -3rem;
-    background-repeat: repeat-x;
-    width: 100%;
-    height: 16rem;
-    margin: 0 0 0 0;
-    background-position-y: -3rem;
-  }
 
   //Iphone 6,7,8
   @media(max-width:375px) and (min-height:666px){
