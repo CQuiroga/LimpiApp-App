@@ -44,6 +44,13 @@ $colors: (
   white:      #ffffff
 );
 
+
+/*- - - - estilos personalizados*/
+
+.greenapp {
+  color: #095A51;
+}
+
 .logo {
   width: 12rem;
   margin: 2% 0 0 32%;
@@ -67,6 +74,12 @@ $colors: (
   height: 16rem;
   margin: 0 0 0 0;
   background-position-y: -3rem;
+}
+
+p {
+  color: #555;
+  font-size: 0.95em;
+  text-align: justify;
 }
 
 

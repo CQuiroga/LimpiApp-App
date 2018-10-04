@@ -15,7 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
-
+import { Calendar } from '@ionic-native/calendar';
 
 import firebase from 'firebase';
 
@@ -68,7 +68,8 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     StatusBar,
     SplashScreen,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Calendar
   ]
 })
 export class AppModule {}

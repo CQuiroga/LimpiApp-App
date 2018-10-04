@@ -50,8 +50,54 @@
 
   </div>
   <div *ngIf="seleccionado == 'Eventos'">
-    <h2>Contenido Eventos</h2>
-  </div>
+    <div class="logo-background_green">
+      <img src="../assets/imgs/logo.png" class="logo">
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        </ion-col>
+          <ion-col col-10>
+              <p class="greenapp">Publicaremos fechas importantes relacionadas con el reciclaje y medio ambiente por este medio,
+                puedes agregarlas a tu calendario de Google para recibir notificaciones. </p>
+
+                  <div class="calendar-header">
+                  <ion-row class="calendar-month">
+                    <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+                    <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+                    <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+                  </ion-row>
+                </div>
+                  <div class="calendar-body">
+                    <ion-grid>
+                      <ion-row class="calendar-weekday">
+                        <ion-col>Dom</ion-col>
+                        <ion-col>Lun</ion-col>
+                        <ion-col>Mar</ion-col>
+                        <ion-col>Mie</ion-col>
+                        <ion-col>Jue</ion-col>
+                        <ion-col>Vie</ion-col>
+                        <ion-col>Sab</ion-col>
+                      </ion-row>
+                    &nbsp;
+                    &nbsp;
+                      <ion-row class="calendar-date">
+                        <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+                        <ion-col col-1 *ngFor="let day of daysInThisMonth">
+                          <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+                          <ng-template #otherDate class="otherDate">{{day}}</ng-template>
+                        </ion-col>
+                        <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+                      </ion-row>
+                    </ion-grid>
+
+                  </div>
+              </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
   <div *ngIf="seleccionado == 'Contacto'">
     <div class="logo-background_green">
       <img src="../assets/imgs/logo.png" class="logo">
