@@ -9,6 +9,7 @@ import { ReportesPage } from '../reportes/reportes';
 import { RutasPage } from '../rutas/rutas';
 import { SiguenosPage } from '../siguenos/siguenos';
 import { Calendar } from '@ionic-native/calendar';
+import { AgregarEventoPage } from '../agregar-evento/agregar-evento';
 
 @Component({
   selector: 'page-home',
@@ -46,7 +47,7 @@ export class HomePage {
   selectedEvent: any;
   isSelected: any;
 
-  constructor(public navCtrl: NavController, public alertController: AlertController, private calendar: Calendar) {}
+  constructor(public navCtrl: NavController, public alertController: AlertController, private calendar: Calendar, private alertCtrl: AlertController) {}
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
@@ -58,6 +59,7 @@ export class HomePage {
     console.log(formContacto.value);
   }
 
+  // función muestra alerta
   showAlert() {
     let alerta= this.alertController.create({
       title: "Confirmación",
@@ -104,56 +106,93 @@ export class HomePage {
         }
       }
     }
-
+    // función ir al anterior mes
     goToLastMonth() {
       this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
       this.getDaysOfMonth();
     }
-
+    // función ir al siguiente mes
     goToNextMonth() {
       this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
       this.getDaysOfMonth();
-  }
-
-  loadEventThisMonth() {
-    this.eventList = new Array();
-    var startDate = new Date(this.date.getFullYear(), this.date.getMonth(), 1);
-    var endDate = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0);
-    this.calendar.listEventsInRange(startDate, endDate).then(
-      (msg) => {
-        msg.forEach(item => {
-          this.eventList.push(item);
+    }
+    // función agregar evento
+    addEvent() {
+      this.navCtrl.push(AgregarEventoPage);
+    }
+    // función cargar mes del evento creado
+    loadEventThisMonth() {
+      this.eventList = new Array();
+      var startDate = new Date(this.date.getFullYear(), this.date.getMonth(), 1);
+      var endDate = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0);
+      this.calendar.listEventsInRange(startDate, endDate).then(
+        (msg) => {
+          msg.forEach(item => {
+            this.eventList.push(item);
+          });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
+    // función traer día del evento creado
+    checkEvent(day) {
+        var hasEvent = false;
+        var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
+        var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
+        this.eventList.forEach(event => {
+          if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
+            hasEvent = true;
+          }
         });
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-}
-
-checkEvent(day) {
-    var hasEvent = false;
-    var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
-    var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
-    this.eventList.forEach(event => {
-      if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
-        hasEvent = true;
-      }
-    });
-    return hasEvent;
-}
-
-selectDate(day) {
-    this.isSelected = false;
-    this.selectedEvent = new Array();
-    var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
-    var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
-    this.eventList.forEach(event => {
-      if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
-        this.isSelected = true;
-        this.selectedEvent.push(event);
-      }
-    });
-}
-
+        return hasEvent;
+    }
+    // función seleccionar día (dentro del evento)
+    selectDate(day) {
+        this.isSelected = false;
+        this.selectedEvent = new Array();
+        var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
+        var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
+        this.eventList.forEach(event => {
+          if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
+            this.isSelected = true;
+            this.selectedEvent.push(event);
+          }
+        });
+    }
+    // función eliminar el evento (ya creado)
+    deleteEvent(evt) {
+      // console.log(new Date(evt.startDate.replace(/\s/, 'T')));
+      // console.log(new Date(evt.endDate.replace(/\s/, 'T')));
+      let alert = this.alertCtrl.create({
+        title: 'Confirmar elimunación',
+        message: '¿Estas eguro de eliminar este evento?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+              console.log('Acción cancelada');
+            }
+          },
+          {
+            text: 'Ok',
+            handler: () => {
+              this.calendar.deleteEvent(evt.title, evt.location, evt.notes, new Date(evt.startDate.replace(/\s/, 'T')), new Date(evt.endDate.replace(/\s/, 'T'))).then(
+                (msg) => {
+                  console.log(msg);
+                  this.loadEventThisMonth();
+                  this.selectDate(new Date(evt.startDate.replace(/\s/, 'T')).getDate());
+                },
+                (err) => {
+                  console.log(err);
+                }
+              )
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
 }

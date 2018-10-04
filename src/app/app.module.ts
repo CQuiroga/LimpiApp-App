@@ -16,6 +16,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { Calendar } from '@ionic-native/calendar';
+import { AgregarEventoPage } from '../pages/agregar-evento/agregar-evento';
 
 import firebase from 'firebase';
 
@@ -44,7 +45,8 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     ReportesPage,
     RutasPage,
     SiguenosPage,
-    TabsPage
+    TabsPage,
+    AgregarEventoPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     ReportesPage,
     RutasPage,
     SiguenosPage,
-    TabsPage
+    TabsPage,
+    AgregarEventoPage
   ],
   providers: [
     StatusBar,
