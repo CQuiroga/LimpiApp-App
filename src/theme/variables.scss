@@ -41,6 +41,7 @@ $colors: (
   dark:       #222,
   greenapp:   #095A51,
   green-transparent: rgba(0, 150, 136, 0.78),
+  white-transparent: rgba(255, 255, 255, 0.78),
   white:      #ffffff
 );
 
@@ -92,23 +93,9 @@ p {
 }
 
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
 
-
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
+/*- - - - - - - - - -  RESPONSIVE - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 

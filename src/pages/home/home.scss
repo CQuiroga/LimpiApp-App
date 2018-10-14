@@ -97,7 +97,8 @@ page-home {
 
   // end estilos calendario
 
-
+  /*- - - - - - - - - -  RESPONSIVE - - - - - - - -
+  - - - - - - - - - - - - - - - - - - - - - - - - - */
 
   //Iphone 6,7,8
   @media(max-width:375px) and (min-height:666px){
@@ -126,13 +127,17 @@ page-home {
     }
   }
 
-
-
   //S9
   @media(max-width:360px) and (min-height:740px){
     .contenedor-home {
       height: 58.6rem;
     }
+
+    .contenedor-ecoaliados {
+      background-size: 107rem 63rem;
+      height: 62.8rem;
+    }
+    
     .tabs {
       padding: 6rem 0 0 0;
     }
