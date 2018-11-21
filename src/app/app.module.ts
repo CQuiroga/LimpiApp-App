@@ -1,6 +1,11 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
@@ -17,8 +22,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { Calendar } from '@ionic-native/calendar';
 import { AgregarEventoPage } from '../pages/agregar-evento/agregar-evento';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker,
+  //Environment
+} from '@ionic-native/google-maps';
+
+import { Geolocation } from '@ionic-native/geolocation';
 
 import firebase from 'firebase';
+
 
 
 var config = {
@@ -67,10 +85,14 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     TabsPage,
     AgregarEventoPage
   ],
+
   providers: [
+    InAppBrowser,
     StatusBar,
     SplashScreen,
     Camera,
+    GoogleMaps,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Calendar
   ]

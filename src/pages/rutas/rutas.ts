@@ -1,5 +1,17 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App, MenuController } from 'ionic-angular';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker,
+  Environment
+} from '@ionic-native/google-maps';
+
+import { Geolocation } from '@ionic-native/geolocation';
 
 /**
  * Generated class for the RutasPage page.
@@ -12,70 +24,55 @@ import { IonicPage, NavController, NavParams, App, MenuController } from 'ionic-
 @Component({
   selector: 'page-rutas',
   templateUrl: 'rutas.html',
-  template: `
-      <ion-header>
-        <ion-navbar>
-          <button ion-button menuToggle icon-only>
-            <ion-icon name='menu'></ion-icon>
-          </button>
-          <ion-title>
-            Menus
-          </ion-title>
-        </ion-navbar>
-      </ion-header>
-      <ion-content padding>
-        <button ion-button block menuToggle>Toggle Menu</button>
-      </ion-content>
-`
+
 })
 export class RutasPage {
+  mapElement;
+  map;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, app: App, menu: MenuController) {
-    menu.enable(true);
+  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps,
+  private geolocation:Geolocation) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RutasPage');
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.loadMap(resp.coords);
+    }).catch((error) => {
+      console.log('Error obteniendo la localización', error);
+    });
   }
 
+  loadMap(coords){
+    this.mapElement = document.getElementById('map');
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+        target: {
+          lat: coords.latitude,
+          lng: coords.longitude
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    };
+    this.map = this.googleMaps.create(this.mapElement, mapOptions);
+    this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
+      this.map.addMarker({
+        title: 'Ionic',
+        icon: 'blue',
+        animation: 'DROP',
+        position: {
+          lat: coords.latitude,
+          lng:coords.longitude
+        }
+      })
+      .then(marker => {
+        marker.on(GoogleMapsEvent.MARKER_CLICK)
+          .subscribe(() => {
+            alert('clicked');
+          });
+      });
+
+  });
+  }
 }
-
-export class PageOne { }
-
-@Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Friends
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
-})
-export class PageTwo { }
-
-@Component({
-  template: `
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Events
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-`
-})
-export class PageThree { }
