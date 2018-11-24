@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController  } from 'ionic-angular';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import firebase from 'firebase';
 
 @IonicPage()
@@ -13,11 +13,11 @@ export class ContactPage {
   registros: any[] = []; // variable para guardar los registros
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alerta: AlertController,
-  private toastCtrl: ToastController) {
+  private toastCtrl: ToastController, public alertCtrl: AlertController, private iab: InAppBrowser) {
 
   }
 
-  
+
 
   ionViewDidLoad() {
     /* para hacer un "select" a firebase
@@ -120,5 +120,7 @@ export class ContactPage {
 private dismissHandler() {
    console.info('ok');
 }
+
+
 
 }

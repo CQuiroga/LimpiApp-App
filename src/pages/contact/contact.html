@@ -7,9 +7,41 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <link rel="stylesheet" href="../assets/css/animate.css">
 </ion-header>
 
-
 <ion-content no-padding>
+
+  <ion-col col-3>
+
+  </ion-col>
+  <ion-col col-6 (click)="openLimpiapp()">
+
+      <div class="cont white-transparent white animated bounceInLeft animated.slower delay-2s">
+        <img src="../assets/imgs/logo.png" width="80%"></div>
+        <br />
+        <ion-list>
+
+          <ion-item>
+            <ion-label fixed>Usuario</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label fixed>Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <div padding>
+          <button ion-button color="greenapp" block>Entrar</button>
+      </div>
+
+  </ion-col>
+  <ion-col col-3>
+  </ion-col>
+
+
 
 </ion-content>

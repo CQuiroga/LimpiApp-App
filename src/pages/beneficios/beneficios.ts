@@ -16,6 +16,8 @@ import { CalculaPage } from '../calcula/calcula';
 })
 export class BeneficiosPage {
 
+CalculaPage = CalculaPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
