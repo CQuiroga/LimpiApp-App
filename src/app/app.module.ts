@@ -16,6 +16,7 @@ import { HomePage } from '../pages/home/home';
 import { ReportesPage } from '../pages/reportes/reportes';
 import { RutasPage } from '../pages/rutas/rutas';
 import { SiguenosPage } from '../pages/siguenos/siguenos';
+import { CalculaPage } from '../pages/calcula/calcula';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -63,6 +64,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     ReportesPage,
     RutasPage,
     SiguenosPage,
+    CalculaPage,
     TabsPage,
     AgregarEventoPage
   ],
@@ -83,6 +85,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     RutasPage,
     SiguenosPage,
     TabsPage,
+    CalculaPage,
     AgregarEventoPage
   ],
 

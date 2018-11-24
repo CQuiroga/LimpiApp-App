@@ -10,6 +10,7 @@ import { RutasPage } from '../rutas/rutas';
 import { SiguenosPage } from '../siguenos/siguenos';
 import { Calendar } from '@ionic-native/calendar';
 import { AgregarEventoPage } from '../agregar-evento/agregar-evento';
+import { CalculaPage } from '../calcula/calcula';
 
 @Component({
   selector: 'page-home',

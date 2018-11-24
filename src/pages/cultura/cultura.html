@@ -13,7 +13,36 @@
 </ion-header>
 
 
-<ion-content padding>
-<p></p>
-<h1>Contenido cultura</h1>
+<ion-content no-padding>
+  <div class="contenedor-cultura" no-padding>
+    <div class="logo-background">
+      <img src="../assets/imgs/logo.png" class="logo">
+    </div>
+
+    <ion-grid class="tabs">
+      <ion-row>
+        <ion-col col-xs></ion-col>
+        <ion-col>
+          <button ion-button color="white-transparent" class="main-buttons" (click)='alertAprende()'><img src="../assets/imgs/aprende.png"></button>
+
+        </ion-col>
+        <ion-col>
+          <a href="">
+            <button ion-button color="white-transparent" class="main-buttons" [navPush]="CalculaPage"><img src="../assets/imgs/calcula.png">
+            </button>
+          </a>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="white-transparent" class="main-buttons" (click)='alertPractica()'><img src="../assets/imgs/practica.png"></button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row>
+        <p></p>
+      </ion-row>
+
+
+
+      </ion-grid>
+      </div>
 </ion-content>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CalculaPage } from '../calcula/calcula';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the CulturaPage page.
@@ -12,15 +14,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-cultura',
   templateUrl: 'cultura.html',
-  
+
 })
 export class CulturaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  CalculaPage = CalculaPage;
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CulturaPage');
+    console.log('Cultura Ok');
+  }
+
+  alertAprende() {
+    const alert = this.alertCtrl.create({
+      title: '¡Contenido no disponible!',
+      subTitle: 'Estamos trabajando para traerte la mejor formación y contenido en reciclaje',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  alertPractica() {
+    const alert = this.alertCtrl.create({
+      title: '¡Contenido no disponible!',
+      subTitle: 'Estamos trabajando para traerte certificaciones y cursos en temas de reciclaje',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

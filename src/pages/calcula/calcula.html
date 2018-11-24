@@ -1,0 +1,65 @@
+<!--
+  Generated template for the CalculaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>calcula</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+
+  <div class="logo-background_green">
+    <img src="../assets/imgs/logo.png" class="logo">
+  </div>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+
+    </ion-col>
+    <ion-col col-10>
+      <h4 class="greenapp">Calcula</h4>
+      <p></p>
+      <p></p>
+      <p>Calcula cuántos puntos puedes obtener por clasificar tus residuos, indicanos cuánto pesa tu reciclaje y a que
+      distancia te encuentras de nuestros puntos de recolección, si te encuentras a menos de seis kilometros, lo recogeremos sin costo alguno.
+      <br />
+      <br />
+      Puedes remir estos puntos por pasajes de transmileno o SITP, un pasaje equivale a 2000 puntos.</p>
+
+      <p></p>
+      <p></p>
+
+      <form #miformulario= 'ngForm' (ngSubmit)="enviarForm(miformulario)">
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label fixed>Peso (Kilogramos)</ion-label>
+          <ion-input type="number" [(ngModel)]="calcula.peso" name="peso"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>Distancia (Kilometros)</ion-label>
+          <ion-input type="number" [(ngModel)]="calcula.distancia" name="distancia"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button block type="submit" [disabled]="!miformulario.valid">Enviar</button>
+        </ion-item>
+      </ion-list>
+
+      </form>
+
+    </ion-col>
+    <ion-col>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

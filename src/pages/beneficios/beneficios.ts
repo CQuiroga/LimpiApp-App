@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CalculaPage } from '../calcula/calcula';
 
 /**
  * Generated class for the BeneficiosPage page.
