@@ -100,7 +100,12 @@
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-facebook4" spec="^3.2.0">
+        <variable name="APP_ID" value="289836354977456" />
+        <variable name="APP_NAME" value="LimpiAppAPI" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
+    </plugin>
     <engine name="android" spec="^7.1.1" />
     <engine name="ios" spec="4.5.5" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
 </widget>

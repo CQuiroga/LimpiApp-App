@@ -19,8 +19,12 @@
             </ion-item>
 
             <div padding-left padding-right padding-top>
-                <button ion-button [disabled]="!signUpForm.form.valid" block>Registrarse</button>
+                <button ion-button [disabled]="!signUpForm.form.valid" block color="greenapp">Regístrate</button>
             </div>
         </ion-list>
     </form>
+    <div padding>
+        <div padding-bottom>ó prueba:</div>
+        <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Registrarse con Facebook</button>
+    </div>
 </ion-content>

@@ -8,7 +8,7 @@ import { UserModel } from '../models/user-model';
 @Injectable()
 export class AuthServiceProvider {
 
-  user: User;
+  user: firebase.User;
 
   constructor(public angularFireAuth: AngularFireAuth) {
     angularFireAuth.authState.subscribe((user: User) => {
@@ -28,7 +28,16 @@ export class AuthServiceProvider {
         return this.angularFireAuth.auth.createUserWithEmailAndPassword(userModel.email, userModel.password);
     }
 
-    signOut(): Promise<any> {
+    signInWithFacebook(accessToken: string): Promise<any> {
+        const facebookCredential = firebase.auth.FacebookAuthProvider.credential(accessToken);
+        return this.angularFireAuth.auth.signInWithCredential(facebookCredential);
+    }
+
+    signInWithPopup(): Promise<any> {
+        return this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    }
+
+    salir(): Promise<any> {
         return this.angularFireAuth.auth.signOut();
 }
 

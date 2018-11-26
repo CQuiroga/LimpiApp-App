@@ -35,14 +35,19 @@
                 </ion-item>
 
                 <div padding-left padding-right padding-top>
-                    <button ion-button [disabled]="!signInForm.form.valid" block class="greenapp">Ingresar</button>
+                    <button ion-button [disabled]="!signInForm.form.valid" block color="greenapp">Ingresar</button>
                 </div>
 
                 <div padding-left padding-right>
-                    <p>&iquest;No tienes Cuenta de Usuario? <a (click)="registrar()" class="greenapp">Regístrate</a>
+                    <p>&iquest;No tienes Cuenta de Usuario? <a (click)="registrar()" color="greenapp">Regístrate</a>
                 </div>
             </ion-list>
     </form>
+    <hr>
+    <div padding>
+        <div padding-bottom>ó prueba:</div>
+        <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Ingresar con Facebook</button>
+    </div>
   </ion-col>
   <ion-col col-3>
   </ion-col>

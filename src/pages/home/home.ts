@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AcercadePage } from '../acercade/acercade';
 import { BeneficiosPage } from '../beneficios/beneficios';
-import { IngresarPage } from '../ingresar/ingresar';
 import { CulturaPage } from '../cultura/cultura';
 import { EcoaliadosPage } from '../ecoaliados/ecoaliados';
 import { ReportesPage } from '../reportes/reportes';
@@ -11,6 +10,9 @@ import { SiguenosPage } from '../siguenos/siguenos';
 import { Calendar } from '@ionic-native/calendar';
 import { AgregarEventoPage } from '../agregar-evento/agregar-evento';
 import { CalculaPage } from '../calcula/calcula';
+
+import { AuthServiceProvider } from '../../providers/auth-service';
+import { IngresarPage } from '../ingresar/ingresar';
 
 @Component({
   selector: 'page-home',
@@ -48,7 +50,9 @@ export class HomePage {
   selectedEvent: any;
   isSelected: any;
 
-  constructor(public navCtrl: NavController, public alertController: AlertController, private calendar: Calendar, private alertCtrl: AlertController) {}
+  constructor(public navCtrl: NavController, public alertController: AlertController,
+    private calendar: Calendar, private alertCtrl: AlertController,
+    public authService: AuthServiceProvider) {}
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
@@ -195,5 +199,10 @@ export class HomePage {
         ]
       });
       alert.present();
+    }
+
+    salir(){
+      this.authService.salir();
+      this.navCtrl.setRoot(IngresarPage);
     }
 }

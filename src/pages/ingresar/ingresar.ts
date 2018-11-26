@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController,Platform} from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import firebase from 'firebase';
+
+import { Facebook } from '@ionic-native/facebook';
 
 // firebase
 
@@ -27,7 +29,9 @@ export class IngresarPage {
   private toastCtrl: ToastController, private iab: InAppBrowser,
   public loadingCtrl: LoadingController,
   public alertCtrl: AlertController,
-  public authService: AuthServiceProvider) {
+  public authService: AuthServiceProvider,
+  public platform: Platform,
+  public facebook: Facebook) {
     this.userModel = new UserModel();
   }
 
@@ -78,7 +82,19 @@ export class IngresarPage {
     */
   }
 
-
+  signInWithFacebook() {
+        if (this.platform.is('cordova')) {
+            return this.facebook.login(['email']).then(result => {
+                this.authService.signInWithFacebook(result.authResponse.accessToken).then(result => {
+                    this.navCtrl.setRoot(HomePage);
+                });
+            });
+        } else {
+            return this.authService.signInWithPopup().then(result => {
+                this.navCtrl.setRoot(HomePage);
+            });
+        }
+  }
 
   nuevoRegistro(){
   let alerta = this.alerta.create({

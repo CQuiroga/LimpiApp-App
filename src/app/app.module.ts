@@ -17,11 +17,14 @@ import { RutasPage } from '../pages/rutas/rutas';
 import { SiguenosPage } from '../pages/siguenos/siguenos';
 import { CalculaPage } from '../pages/calcula/calcula';
 import { TabsPage } from '../pages/tabs/tabs';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { Calendar } from '@ionic-native/calendar';
 import { AgregarEventoPage } from '../pages/agregar-evento/agregar-evento';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { Facebook } from '@ionic-native/facebook';
+
 import {
   GoogleMaps,
   GoogleMap,
@@ -111,7 +114,8 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Calendar,
-    AuthServiceProvider
+    AuthServiceProvider,
+    Facebook
   ]
 })
 export class AppModule {}
