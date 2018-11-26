@@ -9,7 +9,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
-import { ContactPage } from '../pages/contact/contact';
+import { IngresarPage } from '../pages/ingresar/ingresar';
 import { CulturaPage } from '../pages/cultura/cultura';
 import { EcoaliadosPage } from '../pages/ecoaliados/ecoaliados';
 import { HomePage } from '../pages/home/home';
@@ -57,7 +57,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    ContactPage,
+    IngresarPage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -77,7 +77,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     MyApp,
     AcercadePage,
     BeneficiosPage,
-    ContactPage,
+    IngresarPage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,

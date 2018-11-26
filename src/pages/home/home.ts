@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { AcercadePage } from '../acercade/acercade';
 import { BeneficiosPage } from '../beneficios/beneficios';
-import { ContactPage } from '../contact/contact';
+import { IngresarPage } from '../ingresar/ingresar';
 import { CulturaPage } from '../cultura/cultura';
 import { EcoaliadosPage } from '../ecoaliados/ecoaliados';
 import { ReportesPage } from '../reportes/reportes';
@@ -29,7 +29,7 @@ export class HomePage {
   CulturaPage = CulturaPage;
   AcercadePage = AcercadePage;
   BeneficiosPage = BeneficiosPage;
-  ContactPage = ContactPage;
+  IngresarPage = IngresarPage;
   EcoaliadosPage = EcoaliadosPage;
   ReportesPage = ReportesPage;
   RutasPage = RutasPage;

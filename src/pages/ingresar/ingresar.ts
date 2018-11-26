@@ -5,10 +5,10 @@ import firebase from 'firebase';
 
 @IonicPage()
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html',
+  selector: 'page-ingresar',
+  templateUrl: 'ingresar.html',
 })
-export class ContactPage {
+export class IngresarPage {
 
   registros: any[] = []; // variable para guardar los registros
 
