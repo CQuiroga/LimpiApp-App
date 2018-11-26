@@ -1,7 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController  } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import firebase from 'firebase';
+
+// firebase
+
+import { AuthServiceProvider } from '../../providers/auth-service';
+import { UserModel } from '../../models/user-model';
+
+// páginas de inicio de sesión y regreso
+
+import { HomePage } from '../home/home';
+import { RegistratePage } from '../registrate/registrate';
 
 @IonicPage()
 @Component({
@@ -10,14 +20,48 @@ import firebase from 'firebase';
 })
 export class IngresarPage {
 
+  userModel: UserModel;
   registros: any[] = []; // variable para guardar los registros
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alerta: AlertController,
-  private toastCtrl: ToastController, public alertCtrl: AlertController, private iab: InAppBrowser) {
-
+  private toastCtrl: ToastController, private iab: InAppBrowser,
+  public loadingCtrl: LoadingController,
+  public alertCtrl: AlertController,
+  public authService: AuthServiceProvider) {
+    this.userModel = new UserModel();
   }
 
+  ingresar() {
+    let loading = this.loadingCtrl.create({
+            content: 'Iniciando sesión. Por favor, espere...',
+            duration: 10000
+        });
+        loading.present();
 
+        this.authService.signInWithEmailAndPassword(this.userModel).then(result => {
+            loading.dismiss();
+
+            this.navCtrl.setRoot(HomePage);
+        }).catch(error => {
+            loading.dismiss();
+
+            console.log(error);
+            this.alert('Error', 'Ha ocurrido un error inesperado. Por favor intente nuevamente.');
+          });
+    }
+
+    registrar() {
+        this.navCtrl.push(RegistratePage);
+    }
+
+    alert(title: string, message: string) {
+        let alert = this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['OK']
+        });
+        alert.present();
+}
 
   ionViewDidLoad() {
     /* para hacer un "select" a firebase
@@ -33,6 +77,9 @@ export class IngresarPage {
 
     */
   }
+
+
+
   nuevoRegistro(){
   let alerta = this.alerta.create({
     title: "Registro de usuarios",

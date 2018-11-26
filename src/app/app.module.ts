@@ -9,7 +9,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
-import { IngresarPage } from '../pages/ingresar/ingresar';
 import { CulturaPage } from '../pages/cultura/cultura';
 import { EcoaliadosPage } from '../pages/ecoaliados/ecoaliados';
 import { HomePage } from '../pages/home/home';
@@ -38,7 +37,16 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import firebase from 'firebase';
 
+// páginas de inicio de sesión
 
+import { IngresarPage } from '../pages/ingresar/ingresar';
+import { RegistratePage } from '../pages/registrate/registrate';
+
+//firebase
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthServiceProvider } from '../providers/auth-service';
 
 var config = {
     apiKey: "AIzaSyA4fvMLrTx5Pa5p_fOPAflCWLgVHHfgno4",
@@ -48,9 +56,10 @@ var config = {
     storageBucket: "limpiapp-app.appspot.com",
     messagingSenderId: "577087848758"
 };
+
+let firebaseConfig = config;
 firebase.initializeApp(config);
 firebase.firestore().settings({timestampsInSnapshots:true});
-
 
 @NgModule({
   declarations: [
@@ -58,6 +67,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     AcercadePage,
     BeneficiosPage,
     IngresarPage,
+    RegistratePage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -70,7 +80,9 @@ firebase.firestore().settings({timestampsInSnapshots:true});
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -78,6 +90,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     AcercadePage,
     BeneficiosPage,
     IngresarPage,
+    RegistratePage,
     CulturaPage,
     EcoaliadosPage,
     HomePage,
@@ -97,7 +110,8 @@ firebase.firestore().settings({timestampsInSnapshots:true});
     GoogleMaps,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Calendar
+    Calendar,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}
