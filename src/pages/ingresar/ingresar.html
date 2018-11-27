@@ -12,46 +12,45 @@
 
 <ion-content no-padding>
 
-  <ion-col col-3>
+  <ion-grid>
+    <ion-row>
+    <ion-col col-1>
+    </ion-col>
+      <ion-col col-10>
+        <div class="cont white-transparent white animated bounceInLeft animated.slower delay-2s">
+          <img src="../assets/imgs/logo.png" width="80%"></div>
+          <br />
+            <form #signInForm="ngForm" (submit)="signIn()">
+                <ion-list>
+                    <ion-item>
+                        <ion-label stacked>Correo electrónico</ion-label>
+                        <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                            required></ion-input>
+                    </ion-item>
 
-  </ion-col>
-  <ion-col col-6>
+                    <ion-item>
+                        <ion-label stacked>Contraseña</ion-label>
+                        <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>
+                    </ion-item>
 
-      <div class="cont white-transparent white animated bounceInLeft animated.slower delay-2s">
-        <img src="../assets/imgs/logo.png" width="80%"></div>
-        <br />
+                    <div padding-left padding-right padding-top>
+                        <button ion-button [disabled]="!signInForm.form.valid" block color="greenapp">Ingresar</button>
+                    </div>
 
-        <form #signInForm="ngForm" (submit)="signIn()">
-            <ion-list>
-                <ion-item>
-                    <ion-label stacked>Correo electrónico</ion-label>
-                    <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                        required></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label stacked>Contraseña</ion-label>
-                    <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>
-                </ion-item>
-
-                <div padding-left padding-right padding-top>
-                    <button ion-button [disabled]="!signInForm.form.valid" block color="greenapp">Ingresar</button>
-                </div>
-
-                <div padding-left padding-right>
-                    <p>&iquest;No tienes Cuenta de Usuario? <a (click)="registrar()" color="greenapp">Regístrate</a>
-                </div>
-            </ion-list>
-    </form>
+                    <div padding-left padding-right>
+                        <p>&iquest;No tienes Cuenta de Usuario? <a (click)="registrar()" color="greenapp">Regístrate</a>
+                    </div>
+                </ion-list>
+        </form>
     <hr>
-    <div padding>
-        <div padding-bottom>ó prueba:</div>
-        <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Ingresar con Facebook</button>
-    </div>
+        <div padding>
+            <div padding-bottom>ó prueba:</div>
+            <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Ingresar con Facebook</button>
+        </div>
+    </ion-col>
+  <ion-col col-1>
   </ion-col>
-  <ion-col col-3>
-  </ion-col>
-
-
+</ion-row>
+</ion-grid>
 
 </ion-content>

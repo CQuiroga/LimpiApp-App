@@ -5,16 +5,17 @@
 </ion-header>
 
 <ion-content>
+
     <form #signUpForm="ngForm" (submit)="registrar()">
         <ion-list>
             <ion-item>
-                <ion-label stacked>Correo electrónico</ion-label>
+                <ion-label>Correo electrónico</ion-label>
                 <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                     required></ion-input>
             </ion-item>
 
             <ion-item>
-                <ion-label stacked>Contraseña</ion-label>
+                <ion-label>Contraseña</ion-label>
                 <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>
             </ion-item>
 
@@ -27,4 +28,5 @@
         <div padding-bottom>ó prueba:</div>
         <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Registrarse con Facebook</button>
     </div>
+  
 </ion-content>
