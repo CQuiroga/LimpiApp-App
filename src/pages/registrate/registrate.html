@@ -1,32 +1,47 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>Registrarse</ion-title>
+    <ion-navbar color="green-transparent">
+        <ion-title>Regístrate</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content no-padding>
+  <div class="contenedor-registrate">
+  <div class="logo-background_green">
+    <img src="../assets/imgs/logo.png" class="logo">
+  </div>
+    <div class="center" no-padding>
+      <ion-grid>
+        <ion-row>
+        <ion-col col-1>
+        </ion-col>
+          <ion-col col-10>
+            <form #signUpForm="ngForm" (submit)="registrar()">
+                <ion-list>
+                    <ion-item class="border">
+                        <ion-label>Correo electrónico</ion-label>
+                        <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                            required></ion-input>
+                    </ion-item>
+                    <br />
+                    <ion-item class="border">
+                        <ion-label>Contraseña</ion-label>
+                        <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>
+                    </ion-item>
 
-    <form #signUpForm="ngForm" (submit)="registrar()">
-        <ion-list>
-            <ion-item>
-                <ion-label>Correo electrónico</ion-label>
-                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                    required></ion-input>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Contraseña</ion-label>
-                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>
-            </ion-item>
-
-            <div padding-left padding-right padding-top>
-                <button ion-button [disabled]="!signUpForm.form.valid" block color="greenapp">Regístrate</button>
+                    <div padding-left padding-right padding-top>
+                        <button ion-button [disabled]="!signUpForm.form.valid" block color="greenapp">Regístrate</button>
+                    </div>
+                </ion-list>
+            </form>
+            <div padding>
+                <div padding-bottom color="white">ó prueba:</div>
+                <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Registrarse con Facebook</button>
             </div>
-        </ion-list>
-    </form>
-    <div padding>
-        <div padding-bottom>ó prueba:</div>
-        <button ion-button block (click)="signInWithFacebook()" class="facebook-btn">Registrarse con Facebook</button>
-    </div>
-  
+            </ion-col>
+            <ion-col col-1>
+            </ion-col>
+            </ion-row>
+            </ion-grid>
+      </div>
+  </div>
 </ion-content>

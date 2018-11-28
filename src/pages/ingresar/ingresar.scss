@@ -1,7 +1,29 @@
 page-ingresar {
   .cont {
-
     padding: 7% 0 0 10%;
   }
+
+  .contenedor-ingresar {
+    background-image: url('../assets/imgs/ingresar_background.jpg');
+    background-size: 140rem 70rem;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 48.6rem;
+  }
+
+
+  /*- - - - - - - - - -  RESPONSIVE - - - - - - - -
+  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+  //S9
+  @media(max-width:360px) and (min-height:740px){
+
+    .contenedor-ingresar {
+      background-size: 104rem 62.9rem;
+      background-position: -22em;
+      height: 62.8rem;
+    }
+  }
+
 
 }

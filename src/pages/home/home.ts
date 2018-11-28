@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
 import { AcercadePage } from '../acercade/acercade';
 import { BeneficiosPage } from '../beneficios/beneficios';
 import { CulturaPage } from '../cultura/cultura';
@@ -14,12 +14,18 @@ import { CalculaPage } from '../calcula/calcula';
 import { AuthServiceProvider } from '../../providers/auth-service';
 import { IngresarPage } from '../ingresar/ingresar';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import firebase from 'firebase';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
 
 })
 export class HomePage {
+
+  registros: any[] = []; // variable para guardar los registros
+
     contacto= {
     nombre: "",
     email: "",
@@ -50,9 +56,14 @@ export class HomePage {
   selectedEvent: any;
   isSelected: any;
 
-  constructor(public navCtrl: NavController, public alertController: AlertController,
-    private calendar: Calendar, private alertCtrl: AlertController,
-    public authService: AuthServiceProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public alertController: AlertController,
+    public alerta: AlertController,
+    private calendar: Calendar,
+    public authService: AuthServiceProvider,
+    private toastCtrl: ToastController,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController) {}
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
@@ -60,9 +71,6 @@ export class HomePage {
     this.loadEventThisMonth();
 }
 
-  enviarFormulario(formContacto) {
-    console.log(formContacto.value);
-  }
 
   // función muestra alerta
   showAlert() {
@@ -200,6 +208,74 @@ export class HomePage {
       });
       alert.present();
     }
+
+    // Método formulario de contacto
+
+    nuevoContacto(){
+    let alerta = this.alerta.create({
+      title: "Formulario de Contacto",
+      message: "Por favor ingresa tus datos",
+      inputs: [
+        {
+          type: "text",
+          placeholder: "Nombre:", // texto por defecto del input
+          name: "nombre" // para el data binding
+        },
+        {
+          type: "text",
+          placeholder: "Correo:",
+          name: "correo"
+        },
+        {
+          type: "text",
+          placeholder: "Teléfono:",
+          name: "telefono"
+        },
+        {
+          type: "text",
+          placeholder: "Mensaje:",
+          name: "mensaje"
+        }
+      ],
+      buttons: [
+        {
+          text: "Cancelar",
+          handler: () => {} // Funcion que se ejecuta al pulsar el boton, este boton no hará nada
+        },
+        {
+          text: "Enviar",
+          handler: (datos) => {
+            firebase.firestore().collection("contactos").add({
+              nombre: datos.nombre ,
+              correo: datos.correo,
+              telefono: datos.telefono,
+              mensaje: datos.mensaje
+            })
+            .then((documento) => {
+              console.log("Formulario de contacto enviado");
+              // crea toast de confirmación
+              const toast = this.toastCtrl.create({
+                message: '¡Formulario enviado satisfactoriamente!',
+                showCloseButton: true,
+                closeButtonText: 'Ok',
+                position: 'middle'
+              });
+              toast.onDidDismiss(this.dismissHandler);
+              toast.present();
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+          }
+        }
+      ]
+    });
+    alerta.present();
+  }
+
+  private dismissHandler() {
+     console.info('ok');
+  }
 
     salir(){
       this.authService.salir();

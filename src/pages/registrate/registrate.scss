@@ -1,3 +1,29 @@
 page-registrate {
 
+  .center {
+    padding: 10% 0 0 10%;
+  }
+
+  .contenedor-registrate {
+    background-image: url('../assets/imgs/registrate_background.jpg');
+    background-size: 140rem 70rem;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 48.6rem;
+  }
+
+
+  /*- - - - - - - - - -  RESPONSIVE - - - - - - - -
+  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+  //S9
+  @media(max-width:360px) and (min-height:740px){
+
+    .contenedor-registrate {
+      background-size: 104rem 62.9rem;
+      background-position: -23em;
+      height: 62.8rem;
+    }
+  }
+
 }
