@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import {Camera} from '@ionic-native/camera';
 
+
 @Component({
   selector: 'page-reportes',
   templateUrl: 'reportes.html',
@@ -14,7 +15,7 @@ export class ReportesPage {
     ubicacion: "",
     observaciones: "",
 }
-  constructor(public navCtrl: NavController, public alertController: AlertController, private camera: Camera) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public alertController: AlertController, private camera: Camera) {
   }
 
   enviarReporte(formReporte) {
@@ -29,6 +30,15 @@ export class ReportesPage {
       buttons : ['Aceptar']
     })
     alertaRegistro.present();
+  }
+
+  ionViewDidLoad() {
+    const alert = this.alertCtrl.create({
+      title: '¡Genera tu reporte!',
+      subTitle: 'En esta sección podrás enviar reportes sobre zonas y/o cuadras que presenten un evidente descuido y presentación antihigienica',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CalculaPage } from '../calcula/calcula';
 import { AlertController } from 'ionic-angular';
-
+import { AprendePage } from '../aprende/aprende';
 /**
  * Generated class for the CulturaPage page.
  *
@@ -22,7 +22,9 @@ export class CulturaPage {
   }
 
   CalculaPage = CalculaPage;
+  AprendePage = AprendePage;
 
+  
   ionViewDidLoad() {
     console.log('Cultura Ok');
   }

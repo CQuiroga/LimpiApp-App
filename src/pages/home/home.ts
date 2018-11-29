@@ -17,6 +17,8 @@ import { IngresarPage } from '../ingresar/ingresar';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import firebase from 'firebase';
 
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -63,7 +65,8 @@ export class HomePage {
     public authService: AuthServiceProvider,
     private toastCtrl: ToastController,
     public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController) {}
+    public alertCtrl: AlertController,
+    private splashScreen: SplashScreen) {}
   ionViewWillEnter() {
     this.date = new Date();
     this.monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
