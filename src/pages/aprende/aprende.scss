@@ -1,3 +1,24 @@
 page-aprende {
 
+  .contenedor-aprende {
+    background-image: url('../assets/imgs/home_background.jpg');
+    background-size: 140rem 70rem;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 48.6rem;
+  }
+
+
+
+  /*- - - - - - - - - -  RESPONSIVE - - - - - - - -
+  - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+  //S9
+  @media(max-width:360px) and (min-height:740px){
+    .contenedor-aprende {
+      height: 62.8rem;
+    }
+
+  }
+
 }

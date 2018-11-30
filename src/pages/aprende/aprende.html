@@ -1,18 +1,22 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="greenapp">
     <ion-title>aprende</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-  <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-    {{ item }}
-  </button>
-</ion-list>
-
+<ion-content no-padding>
+  <div class="contenedor-aprende" no-padding>
+    <div class="logo-background">
+      <img src="../assets/imgs/logo.png" class="logo">
+    </div>
+    <ion-list>
+      <ion-item button *ngFor="let item of items" (click)="itemSelected(item)" color="white-transparent">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+ </div>
 </ion-content>

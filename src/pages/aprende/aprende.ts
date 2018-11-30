@@ -19,23 +19,15 @@ export class AprendePage {
   // array de objetos en la lista
 
   items = [
-    'Pokémon Yellow',
-    'Super Metroid',
-    'Mega Man X',
-    'The Legend of Zelda',
-    'Pac-Man',
-    'Super Mario World',
-    'Street Fighter II',
-    'Half Life',
-    'Final Fantasy VII',
-    'Star Fox',
-    'Tetris',
-    'Donkey Kong III',
-    'GoldenEye 007',
-    'Doom',
-    'Fallout',
-    'GTA',
-    'Halo'
+    ' > Usos de los materiales plásticos',
+    ' > Gestión ambiental',
+    ' > Clasificación de residuos',
+    ' > Metales, selección y aplicación',
+    ' > Origami con reciclaje',
+    ' > Comercialización con reciclaje',
+    ' > Construcción sostenible con botellas',
+    ' > Gestión de residuos peligrosos'
+
   ];
 
   itemSelected(item: string) {

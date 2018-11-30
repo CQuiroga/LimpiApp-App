@@ -8,6 +8,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { AcercadePage } from '../pages/acercade/acercade';
+import { AprendePage } from '../pages/aprende/aprende';
 import { BeneficiosPage } from '../pages/beneficios/beneficios';
 import { CulturaPage } from '../pages/cultura/cultura';
 import { EcoaliadosPage } from '../pages/ecoaliados/ecoaliados';
@@ -68,6 +69,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
   declarations: [
     MyApp,
     AcercadePage,
+    AprendePage,
     BeneficiosPage,
     IngresarPage,
     RegistratePage,
@@ -91,6 +93,7 @@ firebase.firestore().settings({timestampsInSnapshots:true});
   entryComponents: [
     MyApp,
     AcercadePage,
+    AprendePage,
     BeneficiosPage,
     IngresarPage,
     RegistratePage,
