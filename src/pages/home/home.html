@@ -65,6 +65,10 @@
     <div class="logo-background_green">
       <img src="../assets/imgs/logo.png" class="logo">
     </div>
+    <ion-fab right bottom>
+      <button ion-fab color="green-transparent" (click)="addEvent()"><ion-icon name="add"></ion-icon></button>
+
+    </ion-fab>
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -119,16 +123,13 @@
                   </ion-list>
                 </div>
               </ion-col>
+
             <ion-col>
             </ion-col>
           </ion-row>
         </ion-grid>
-
-        <ion-fab bottom right>
-          <button ion-fab color="green-transparent" (click)="addEvent()"><ion-icon name="add"></ion-icon></button>
-
-        </ion-fab>
       </div>
+
   <div *ngIf="seleccionado == 'Contacto'" class="contenedor-home" no-padding>
 
       <div class="logo-background">

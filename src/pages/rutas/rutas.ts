@@ -58,8 +58,8 @@ export class RutasPage {
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
       this.map.addMarker({
-        title: 'Ionic',
-        icon: 'blue',
+        title: 'Mi Ruta',
+        icon: 'green',
         animation: 'DROP',
         position: {
           lat: coords.latitude,

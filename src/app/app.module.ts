@@ -25,7 +25,6 @@ import { AgregarEventoPage } from '../pages/agregar-evento/agregar-evento';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { Facebook } from '@ionic-native/facebook';
-
 import {
   GoogleMaps,
   GoogleMap,
@@ -53,6 +52,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../providers/auth-service';
 
 var config = {
+  
     apiKey: "AIzaSyA4fvMLrTx5Pa5p_fOPAflCWLgVHHfgno4",
     authDomain: "limpiapp-app.firebaseapp.com",
     databaseURL: "https://limpiapp-app.firebaseio.com",
@@ -60,10 +60,10 @@ var config = {
     storageBucket: "limpiapp-app.appspot.com",
     messagingSenderId: "577087848758"
 };
-
 let firebaseConfig = config;
 firebase.initializeApp(config);
 firebase.firestore().settings({timestampsInSnapshots:true});
+
 
 @NgModule({
   declarations: [
